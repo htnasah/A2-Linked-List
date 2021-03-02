@@ -28,15 +28,18 @@ public class LinkedList {
      */
     public int mean() {
         int[] list = toArray();
-        double average = 0;
+        int average = 0;
         for (int i : list) {
             average += i;
         }
         if (!isEmpty())
         {
-            return (int) (average/size());
+            return  (average/size());
         }
-        return -1;
+        else
+        {
+            return -1;
+        }
     }
 
     /**
@@ -74,7 +77,15 @@ public class LinkedList {
      * ex: list: 1 -> 3 -> 4 -> 2 -> 8
      *     list after removeOdds: 1 -> 4 -> 8
      */
-    public void removeOdds() { }
+    public void removeOdds() {
+        for(int i = 0; i < this.size(); i++)
+        {
+            if(i %2 != 0)
+            {
+                remove(this.get(i));
+            }
+        }
+    }
 
     /**
      * Return true if the list is symmetrical, false otherwise
@@ -88,7 +99,15 @@ public class LinkedList {
      */
 
     public boolean isSymmetrical() {
-        return false;
+        for(int i = 0; i < this.size(); i++)
+        {
+            int val = this.get(i);
+            if(indexOf(val) != this.size()-1 - lastIndexOf(val))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 
