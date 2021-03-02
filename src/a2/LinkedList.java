@@ -78,17 +78,16 @@ public class LinkedList {
      *     list after removeOdds: 1 -> 4 -> 8
      */
     public void removeOdds() {
-        for(int i  = 0; i <= this.size(); i++)
-        {
-            if(i%2 != 0)
-            {
-                this.set(i, -1);
-            }
-        }
-        while(this.contains(-1))
-        {
-            this.remove(-1);
-        }
+     if(this.size != 1) {
+         for (int i = 0; i <= this.size(); i++) {
+             if (i % 2 != 0) {
+                 this.set(i, -1);
+             }
+         }
+         while (this.contains(-1)) {
+             this.remove(-1);
+         }
+     }
     }
 
     /**
@@ -142,7 +141,22 @@ public class LinkedList {
      *
      * @param factor the amount to multiply the number of occurrences of each element by
      */
-    public void multiply(int factor) { }
+    public void multiply(int factor) {
+        for(int i = 0; i < this.size(); i++)
+        {
+            if(factor == 0)
+            {
+                this.clear();
+            }
+            else{
+                for(int j = 0; j < factor - 1; j++) {
+                    this.add(i, this.get(i));
+                }
+                i += factor-1;
+            }
+        }
+
+    }
 
     /**
      * Reverse the list
@@ -151,6 +165,7 @@ public class LinkedList {
      *    list after reverse: 7 -> 8 -> 9 -> 10
      *
      */
+
     public void reverse() {
 
     }
@@ -178,6 +193,14 @@ public class LinkedList {
      * @return true if the list contains a cycle, false otherwise
      */
     public boolean containsCycle() {
+        for(int i  = 0; i < this.size(); i++)
+        {
+            if(this.indexOf(this.get(i)) != this.lastIndexOf(this.get(i)))
+            {
+                return true;
+            }
+        }
+
         return false;
     }
 
