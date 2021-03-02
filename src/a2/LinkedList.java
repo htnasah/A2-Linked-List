@@ -18,13 +18,26 @@ public class LinkedList {
      * @param i    - index of node to remove
      */
     public void removeAtIndex(int i) {
+        int value = this.get(i);
+        this.remove(value);
     }
 
     /**
      * Compute and return the average of all the numbers in the linked list rounded down to the nearest integer
      * @return an int that is the floor of the mean of the list.
      */
-    public int mean() { return -1; }
+    public int mean() {
+        int[] list = toArray();
+        double average = 0;
+        for (int i : list) {
+            average += i;
+        }
+        if (!isEmpty())
+        {
+            return (int) (average/size());
+        }
+        return -1;
+    }
 
     /**
      * Return true if this linked list is equal to the list argument, false otherwise.
@@ -41,6 +54,17 @@ public class LinkedList {
      * @return true if the lists have the same elements in the same order, false otherwise
      */
     public boolean isEqual(LinkedList list2) {
+        if (this.size() == list2.size())
+        {
+            for(int i = 0; i < this.size(); i++)
+            {
+                if(list2.get(i) != this.get(i))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         return false;
     }
 
