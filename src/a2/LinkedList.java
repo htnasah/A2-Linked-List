@@ -32,9 +32,9 @@ public class LinkedList {
         for (int i : list) {
             average += i;
         }
-        if (!isEmpty())
+        if (this.size() != 0)
         {
-            return  (average/size());
+            return average/list.length;
         }
         else
         {
@@ -78,12 +78,16 @@ public class LinkedList {
      *     list after removeOdds: 1 -> 4 -> 8
      */
     public void removeOdds() {
-        for(int i = 0; i < this.size(); i++)
+        for(int i  = 0; i <= this.size(); i++)
         {
-            if(i %2 != 0)
+            if(i%2 != 0)
             {
-                remove(this.get(i));
+                this.set(i, -1);
             }
+        }
+        while(this.contains(-1))
+        {
+            this.remove(-1);
         }
     }
 
@@ -99,15 +103,33 @@ public class LinkedList {
      */
 
     public boolean isSymmetrical() {
-        for(int i = 0; i < this.size(); i++)
+        if(size()==0)
         {
-            int val = this.get(i);
-            if(indexOf(val) != this.size()-1 - lastIndexOf(val))
+            return true;
+        }
+        if (size() %2 == 0)
+        {
+            for(int i = 0; i < (size()/2); i++)
             {
-                return false;
+                int value = this.get(i);
+                if(this.indexOf(value) + 1 == this.lastIndexOf(value))
+                {
+                    return true;
+                }
             }
         }
-        return true;
+        else{
+            for(int i = 0; i < this.size(); i++)
+            {
+                int val = this.get(i);
+                if(indexOf(val) == lastIndexOf(val))
+                {
+                    return true;
+                }
+            }
+
+        }
+       return false;
     }
 
 
