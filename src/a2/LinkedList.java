@@ -161,17 +161,7 @@ public class LinkedList {
      */
     public void removeRepeats()
     {
-        for(int i = 0; i < this.size()-1; i++)
-        {
-            if(this.get(i) == this.get(i+1))
-            {
-                this.removeAtIndex(i);
-                while(this.indexOf(this.get(i)) != this.lastIndexOf(this.get(i)))
-                {
-                    this.removeAtIndex(this.lastIndexOf(this.get(i)));
-                }
-            }
-        }
+
     }
 
 
