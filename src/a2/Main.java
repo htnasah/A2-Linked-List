@@ -15,6 +15,7 @@ public class Main {
         list.add(3);
         list.merge(list2);
         list.reverse();
+        System.out.println(list.containsCycle());
         System.out.println(list.toString());
 
     }

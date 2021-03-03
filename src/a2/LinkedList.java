@@ -201,6 +201,14 @@ public class LinkedList {
      */
     public boolean containsCycle()
     {
+        int[] list = this.toArray();
+        for(int i : list)
+        {
+            if(this.indexOf(i) != this.lastIndexOf(i))
+            {
+                return true;
+            }
+        }
         return false;
     }
 
