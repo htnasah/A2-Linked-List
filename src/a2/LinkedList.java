@@ -28,7 +28,7 @@ public class LinkedList {
      */
     public int mean() {
         Node current = head;
-        double sum = 0.0;
+        int sum = 0;
         int index = 0;
         while(index<this.size())
         {
@@ -36,7 +36,7 @@ public class LinkedList {
             current = current.getNext();
             index++;
         }
-        return (int)(sum/this.size());
+        return sum/this.size();
     }
 
     /**
@@ -206,7 +206,9 @@ public class LinkedList {
         {
             if(this.indexOf(i) != this.lastIndexOf(i))
             {
-                return true;
+                if(this.lastIndexOf(i) - this.indexOf(i) > 1) {
+                    return true;
+                }
             }
         }
         return false;
