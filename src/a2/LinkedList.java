@@ -151,7 +151,21 @@ public class LinkedList {
 
     public void reverse()
     {
-
+        int start = 0;
+        int sval = 0;
+        int eval = 0;
+        for(int i = this.size() - 1; i >= 0; i--)
+        {
+            sval = this.get(start);
+            eval = this.get(i);
+            this.set(start, eval);
+            this.set(i, sval);
+            start++;
+            if (i <= (this.size()/2))
+            {
+                i = 0;
+            }
+        }
     }
 
     /**
@@ -162,8 +176,6 @@ public class LinkedList {
      */
     public void removeRepeats()
     {
-        int m = 0;
-        int val = 0;
         for(int i = 0; i < this.size(); i++)
         {
             while(this.indexOf(this.get(i)) != this.lastIndexOf(this.get(i)))
@@ -221,7 +233,11 @@ public class LinkedList {
                 index++;
             }
         }
-        else
+        else if (list2.size() == 0)
+        {
+
+        }
+        else if(this.size() > list2.size())
         {
             int[] list  = this.toArray();
             int index = 0;
