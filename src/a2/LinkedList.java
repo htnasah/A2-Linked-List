@@ -150,21 +150,7 @@ public class LinkedList {
 
     public void reverse()
     {
-        int start = 0;
-        int sval = 0;
-        int eval = 0;
-        for(int i = this.size() - 1; i > 0; i--)
-        {
-            sval = this.get(start);
-            eval = this.get(i);
-            this.set(start, eval);
-            this.set(i, sval);
-            start++;
-            if (i <= (this.size()/2))
-            {
-                i = 0;
-            }
-        }
+
     }
 
     /**
@@ -220,7 +206,8 @@ public class LinkedList {
      *
      * @param list2
      */
-    public void merge(LinkedList list2) { }
+    public void merge(LinkedList list2)
+    { }
 
 
     /* Implementation given to you. Do not modify below this. */
