@@ -99,7 +99,8 @@ public class LinkedList {
      * @return true if the list is symmetrical, false otherwise
      */
 
-    public boolean isSymmetrical() {
+    public boolean isSymmetrical()
+    {
         if(size() == 0)
         {
             return true;
@@ -180,7 +181,7 @@ public class LinkedList {
      */
     public boolean containsCycle()
     {
-
+        return true;
     }
 
     /**
