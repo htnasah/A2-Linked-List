@@ -14,8 +14,9 @@ public class Main {
         list.add(5);
         list.add(6);
         list.add(7);
+        list.multiply(4);
         System.out.println(list.toString());
-        System.out.println(list.toString());
+        System.out.println(list.mean());
         System.out.println(list.isSymmetrical());
     }
 }

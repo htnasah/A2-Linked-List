@@ -27,19 +27,17 @@ public class LinkedList {
      * @return an int that is the floor of the mean of the list.
      */
     public int mean() {
-        int[] list = toArray();
-        int average = 0;
-        for (int i : list) {
-            average += i;
-        }
-        if (this.size() != 0)
+        Node current = head;
+        double sum = 0.0;
+        int index = 0;
+        while(index<this.size())
         {
-            return average/list.length;
+            sum += current.getValue();
+            current = current.getNext();
+            index++;
         }
-        else
-        {
-            return -1;
-        }
+        System.out.println(sum);
+        return (int)(sum/this.size());
     }
 
     /**
@@ -142,21 +140,19 @@ public class LinkedList {
      * @param factor the amount to multiply the number of occurrences of each element by
      */
     public void multiply(int factor) {
-        for(int i = 0; i < this.size(); i++)
-        {
-            if(factor == 0)
-            {
-                this.clear();
-            }
-            else{
-                for(int j = 0; j < factor - 1; j++) {
-                    this.add(i, this.get(i));
+        if (factor == 0) {
+            this.clear();
+        }
+        else {
+            for (int i = 0; i < this.size(); i++) {
+
+                    for (int j = 0; j < factor - 1; j++) {
+                        this.add(i, this.get(i));
+                    }
+                    i += factor - 1;
                 }
-                i += factor-1;
             }
         }
-
-    }
 
     /**
      * Reverse the list
