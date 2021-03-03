@@ -28,7 +28,7 @@ public class LinkedList {
      */
     public int mean() {
         Node current = head;
-        int sum = 0;
+        double sum = 0;
         int index = 0;
         while(index<this.size())
         {
@@ -36,7 +36,7 @@ public class LinkedList {
             current = current.getNext();
             index++;
         }
-        return sum/this.size();
+        return (int)Math.floor(sum/this.size());
     }
 
     /**
@@ -201,12 +201,19 @@ public class LinkedList {
      */
     public boolean containsCycle()
     {
+        Node[] known = new Node[this.size()];
+        Node iter = head;
         for(int i = 0; i < this.size(); i++)
         {
-            int val = this.get(i);
-            if(this.indexOf(val) != this.lastIndexOf(val))
+            known[i] = iter;
+            iter = iter.getNext();
+        }
+        for(int i = 0; i < this.size(); i++)
+        {
+            for(int j = 1; j < this.size(); j++)
             {
-                if(this.lastIndexOf(val) - this.indexOf(val) > 1) {
+                if(known[i] == known[j])
+                {
                     return true;
                 }
             }
