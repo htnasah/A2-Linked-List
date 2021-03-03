@@ -189,7 +189,14 @@ public class LinkedList {
      */
     public boolean containsCycle()
     {
-        return true;
+        for(int i = 0; i < this.size(); i++)
+        {
+            if(this.indexOf((this.get(i))) != this.lastIndexOf(this.get(i)))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
