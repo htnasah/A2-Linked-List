@@ -10,11 +10,8 @@ public class Main {
         list.add(2);
         list.add(3);
         list.add(4);
-        list.add(3);
-        list.add(2);
-        list.add(1);
+        list.reverse();
         System.out.println(list.toString());
-        System.out.println(list.mean());
-        System.out.println(list.isSymmetrical());
+
     }
 }

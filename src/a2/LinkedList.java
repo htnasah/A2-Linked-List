@@ -148,7 +148,24 @@ public class LinkedList {
      *
      */
 
-    public void reverse() { }
+    public void reverse()
+    {
+        int start = 0;
+        int sval = 0;
+        int eval = 0;
+        for(int i = this.size() - 1; i > 0; i--)
+        {
+            sval = this.get(start);
+            eval = this.get(i);
+            this.set(start, eval);
+            this.set(i, sval);
+            start++;
+            if (i <= (this.size()/2))
+            {
+                i = 0;
+            }
+        }
+    }
 
     /**
      * Given a sorted linked list, remove the duplicate values from the list
@@ -156,7 +173,10 @@ public class LinkedList {
      *     list after removeRepeats: 5 -> 6 -> 7 -> 8 -> 9
      *
      */
-    public void removeRepeats() { }
+    public void removeRepeats()
+    {
+
+    }
 
 
     /**
@@ -172,7 +192,16 @@ public class LinkedList {
      *
      * @return true if the list contains a cycle, false otherwise
      */
-    public boolean containsCycle() { return false; }
+    public boolean containsCycle()
+    {
+        for (int i = 0; i < this.size(); i++) {
+            int val = this.get(i);
+            if (indexOf(val) != lastIndexOf(val)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * Merge the given linked list into the current list. The 2 lists will always be
