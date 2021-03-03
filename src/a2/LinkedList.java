@@ -161,7 +161,17 @@ public class LinkedList {
      */
     public void removeRepeats()
     {
-
+        for(int i = 0; i < this.size()-1; i++)
+        {
+            if(this.get(i) == this.get(i+1))
+            {
+                this.removeAtIndex(i);
+                while(this.indexOf(this.get(i)) != this.lastIndexOf(this.get(i)))
+                {
+                    this.removeAtIndex(this.lastIndexOf(this.get(i)));
+                }
+            }
+        }
     }
 
 
@@ -180,13 +190,7 @@ public class LinkedList {
      */
     public boolean containsCycle()
     {
-        for (int i = 0; i < this.size(); i++) {
-            int val = this.get(i);
-            if (indexOf(val) != lastIndexOf(val)) {
-                return true;
-            }
-        }
-        return false;
+
     }
 
     /**
