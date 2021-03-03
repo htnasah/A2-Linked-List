@@ -207,12 +207,9 @@ public class LinkedList {
         {
             known[i] = iter;
             iter = iter.getNext();
-        }
-        for(int i = 0; i < this.size(); i++)
-        {
-            for(int j = 1; j < this.size(); j++)
+            for(Node j : known)
             {
-                if(known[i] == known[j])
+                if(iter == j)
                 {
                     return true;
                 }
