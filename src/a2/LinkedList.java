@@ -189,13 +189,6 @@ public class LinkedList {
      */
     public boolean containsCycle()
     {
-        for(int i = 0; i < this.size(); i++)
-        {
-            if(this.indexOf((this.get(i))) != this.lastIndexOf(this.get(i)))
-            {
-                return true;
-            }
-        }
         return false;
     }
 
@@ -217,7 +210,33 @@ public class LinkedList {
      * @param list2
      */
     public void merge(LinkedList list2)
-    { }
+    {
+        if(list2.size() == this.size())
+        {
+            int[] list  = this.toArray();
+            int index = 0;
+            for(int item : list)
+            {
+                this.add(this.indexOf(item) + 1, list2.get(index));
+                index++;
+            }
+        }
+        else
+        {
+            int[] list  = this.toArray();
+            int index = 0;
+            for(int item : list)
+            {
+                this.add(this.indexOf(item) + 1, list2.get(index));
+                index++;
+                if(index == list2.size())
+                {
+                    break;
+                }
+            }
+        }
+
+    }
 
 
     /* Implementation given to you. Do not modify below this. */
