@@ -201,12 +201,12 @@ public class LinkedList {
      */
     public boolean containsCycle()
     {
-        int[] list = this.toArray();
-        for(int i : list)
+        for(int i = 0; i < this.size(); i++)
         {
-            if(this.indexOf(i) != this.lastIndexOf(i))
+            int val = this.get(i);
+            if(this.indexOf(val) != this.lastIndexOf(val))
             {
-                if(this.lastIndexOf(i) - this.indexOf(i) > 1) {
+                if(this.lastIndexOf(val) - this.indexOf(val) > 1) {
                     return true;
                 }
             }
