@@ -36,7 +36,6 @@ public class LinkedList {
             current = current.getNext();
             index++;
         }
-        System.out.println(sum);
         return (int)(sum/this.size());
     }
 
@@ -77,16 +76,17 @@ public class LinkedList {
      */
     public void removeOdds() {
      if(this.size != 1) {
-         for (int i = 0; i <= this.size(); i++) {
+         for (int i = 0; i < this.size(); i++) {
              if (i % 2 != 0) {
                  this.set(i, -1);
              }
          }
-         while (this.contains(-1)) {
+     }
+         while(contains(-1))
+         {
              this.remove(-1);
          }
      }
-    }
 
     /**
      * Return true if the list is symmetrical, false otherwise
@@ -100,33 +100,19 @@ public class LinkedList {
      */
 
     public boolean isSymmetrical() {
-        if(size()==0)
+        if(size() == 0)
         {
             return true;
         }
-        if (size() %2 == 0)
-        {
-            for(int i = 0; i < (size()/2); i++)
-            {
-                int value = this.get(i);
-                if(this.indexOf(value) + 1 == this.lastIndexOf(value))
-                {
-                    return true;
-                }
-            }
-        }
-        else{
-            for(int i = 0; i < this.size(); i++)
-            {
+        else {
+            for (int i = 0; i < this.size(); i++) {
                 int val = this.get(i);
-                if(indexOf(val) == lastIndexOf(val))
-                {
-                    return true;
+                if (indexOf(val) != this.size() - 1 - lastIndexOf(val)) {
+                    return false;
                 }
             }
-
+            return true;
         }
-       return false;
     }
 
 
@@ -162,9 +148,7 @@ public class LinkedList {
      *
      */
 
-    public void reverse() {
-
-    }
+    public void reverse() { }
 
     /**
      * Given a sorted linked list, remove the duplicate values from the list
@@ -188,17 +172,7 @@ public class LinkedList {
      *
      * @return true if the list contains a cycle, false otherwise
      */
-    public boolean containsCycle() {
-        for(int i  = 0; i < this.size(); i++)
-        {
-            if(this.indexOf(this.get(i)) != this.lastIndexOf(this.get(i)))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    public boolean containsCycle() { return false; }
 
     /**
      * Merge the given linked list into the current list. The 2 lists will always be
